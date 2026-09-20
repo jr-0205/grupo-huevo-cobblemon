@@ -20,12 +20,15 @@ function render(){
  });
  $('#matchExplanation').innerHTML=reference?`<b>${reference.name}</b> pertenece a ${referenceGroups.map(g=>`<b>${labels[g]||g}</b>`).join(' y ')}. Se muestran solamente Pokémon que comparten al menos uno de esos grupos.`:q?'Completa el nombre del Pokémon para consultar todos los integrantes de sus grupos huevo.':`<b>Cómo usar:</b> escribe el nombre exacto de un Pokémon para ver únicamente los integrantes de sus grupos huevo.`;
  $('#resultCount').textContent=rows.length.toLocaleString('es-MX');empty.hidden=rows.length>0;
- grid.innerHTML=rows.slice(0,300).map(p=>`<article class="pokemon-card"><span class="dexno">#${String(p.num).padStart(4,'0')}</span><div class="sprite-wrap"><img loading="lazy" src="${sprite(p)}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="sprite-fallback" aria-label="Imagen no disponible">${p.name.slice(0,2).toUpperCase()}</span></div><h2>${p.name}</h2><div class="tags">${p.eggGroups.map(g=>`<span class="tag egg" style="background:${colors[g]||'#7156d9'}">${labels[g]||g}</span>`).join('')}</div></article>`).join('');
+ grid.innerHTML=rows.slice(0,300).map(p=>`<article class="pokemon-card" style="--card-accent:${colors[p.eggGroups[0]]||'#6ea8ff'}"><div class="card-topline"><span class="dexno">#${String(p.num).padStart(4,'0')}</span><span class="gen-badge">GEN ${toRoman(p.gen)}</span></div><div class="sprite-wrap"><img loading="lazy" src="${sprite(p)}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="sprite-fallback" aria-label="Imagen no disponible">${p.name.slice(0,2).toUpperCase()}</span></div><h2>${p.name}</h2><div class="tags">${p.eggGroups.map(g=>`<span class="tag egg" style="--tag-color:${colors[g]||'#6ea8ff'}">${labels[g]||g}</span>`).join('')}</div></article>`).join('');
 }
-$('#groupOverview').innerHTML=groups.map(g=>`<button class="group-chip" data-group="${g}">${labels[g]||g} · ${data.filter(p=>p.eggGroups.includes(g)).length}</button>`).join('');
-document.querySelectorAll('.group-chip').forEach(x=>x.onclick=()=>{a.value=a.value===x.dataset.group?'':x.dataset.group;document.querySelectorAll('.group-chip').forEach(y=>y.classList.toggle('active',y.dataset.group===a.value));render()});
-[search,a,b].forEach(x=>x.addEventListener(x===search?'input':'change',render));
+$('#groupOverview').innerHTML=groups.map(g=>`<button class="group-chip" type="button" data-group="${g}" aria-pressed="false">${labels[g]||g} · ${data.filter(p=>p.eggGroups.includes(g)).length}</button>`).join('');
+function syncGroupChips(){document.querySelectorAll('.group-chip').forEach(y=>{const active=y.dataset.group===a.value;y.classList.toggle('active',active);y.setAttribute('aria-pressed',String(active))})}
+document.querySelectorAll('.group-chip').forEach(x=>x.onclick=()=>{a.value=a.value===x.dataset.group?'':x.dataset.group;syncGroupChips();render()});
+search.addEventListener('input',render);
+a.addEventListener('change',()=>{syncGroupChips();render()});
+b.addEventListener('change',render);
 document.querySelectorAll('#generationChecks input').forEach(x=>x.addEventListener('change',()=>{updateGenerationButton();render()}));
 function updateGenerationButton(){const checked=document.querySelectorAll('#generationChecks input:checked').length;$('#toggleGenerations').textContent=checked===generations.length?'Desmarcar todas':'Marcar todas'}
 $('#toggleGenerations').onclick=()=>{const boxes=[...document.querySelectorAll('#generationChecks input')],allOn=boxes.every(x=>x.checked);boxes.forEach(x=>x.checked=!allOn);updateGenerationButton();render()};
-$('#reset').onclick=()=>{search.value='';a.value='';b.value='';document.querySelectorAll('#generationChecks input').forEach(x=>x.checked=true);document.querySelectorAll('.group-chip').forEach(x=>x.classList.remove('active'));updateGenerationButton();render()};render();
+$('#reset').onclick=()=>{search.value='';a.value='';b.value='';document.querySelectorAll('#generationChecks input').forEach(x=>x.checked=true);syncGroupChips();updateGenerationButton();render()};render();
