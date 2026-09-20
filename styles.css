@@ -1,1 +1,109 @@
-:root{--ink:#171815;--paper:#f3efe4;--acid:#d9ff43;--violet:#7156d9;--muted:#686960;--line:#cec9bb;--card:#fffdf6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}.hero{min-height:430px;background:var(--ink);color:white;position:relative;overflow:hidden;padding:28px clamp(22px,5vw,72px) 48px}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 50%,rgba(113,86,217,.28));pointer-events:none}.hero nav{display:flex;justify-content:space-between;font:700 11px/1 monospace;letter-spacing:.16em;position:relative;z-index:2}.brand{color:var(--acid)}.hero-copy{position:relative;z-index:2;margin-top:62px;max-width:760px}.eyebrow{font:700 12px/1 monospace;letter-spacing:.22em;color:#aaa69b}.hero h1{font-size:clamp(66px,11vw,146px);line-height:.72;letter-spacing:-.075em;margin:20px 0 32px;text-transform:uppercase}.hero h1 em{font-family:Georgia,serif;font-weight:400;color:var(--acid);text-transform:none}.intro{max-width:480px;color:#c9c7bf;line-height:1.55;margin-left:min(20vw,220px)}.orb{position:absolute;width:340px;height:340px;border:1px solid #5b5c56;border-radius:50%;right:7vw;top:80px}.orb:before,.orb:after{content:"";position:absolute;background:#5b5c56}.orb:before{height:1px;width:100%;top:50%}.orb:after{width:70px;height:70px;border:22px solid var(--ink);outline:1px solid #5b5c56;border-radius:50%;left:113px;top:113px;background:var(--acid)}main{max-width:1500px;margin:auto;padding:0 clamp(18px,4vw,56px) 70px}.controls{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:14px;margin-top:-28px;position:relative;z-index:3;background:var(--card);border:1px solid var(--line);padding:18px;box-shadow:0 14px 35px #302e2417}.controls label{display:flex;flex-direction:column;gap:7px}.controls span{font:700 10px monospace;letter-spacing:.14em;color:var(--muted)}input,select,button{height:45px;border:1px solid var(--line);background:white;padding:0 13px;font:600 14px Arial;color:var(--ink)}input:focus,select:focus{outline:2px solid var(--violet);outline-offset:1px}button{background:var(--ink);color:white;border-color:var(--ink);cursor:pointer;align-self:end}button:hover{background:var(--violet)}.legend{display:grid;grid-template-columns:220px 1fr;gap:30px;padding:38px 0 26px;border-bottom:1px solid var(--line);align-items:end}.legend div{display:flex;align-items:end;gap:10px}.legend strong{font:700 52px/.8 Georgia;color:var(--violet)}.legend span{font-size:12px;color:var(--muted);max-width:80px}.legend p{margin:0;max-width:740px;color:var(--muted);font-size:13px;line-height:1.55}.group-overview{display:flex;gap:8px;overflow:auto;padding:22px 0 10px}.group-chip{border:1px solid var(--line);background:transparent;color:var(--ink);height:32px;white-space:nowrap;font:700 11px monospace;padding:0 12px}.group-chip.active{background:var(--acid);border-color:var(--ink)}.pokemon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;padding-top:18px}.pokemon-card{background:var(--card);border:1px solid var(--line);min-height:260px;padding:16px;position:relative;overflow:hidden;transition:.18s ease}.pokemon-card:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:5px 5px 0 var(--acid)}.dexno{font:700 11px monospace;color:var(--muted)}.pokemon-card img{width:138px;height:138px;object-fit:contain;display:block;margin:0 auto;image-rendering:auto}.pokemon-card h2{font-size:21px;margin:2px 0 11px;letter-spacing:-.03em}.tags{display:flex;gap:5px;flex-wrap:wrap}.tag{font:700 10px monospace;text-transform:uppercase;padding:5px 7px;border-radius:20px;background:#e9e5d9}.egg{background:var(--violet);color:white}.empty{text-align:center;padding:70px 10px;color:var(--muted)}footer{background:var(--violet);color:white;padding:32px clamp(22px,5vw,72px);display:flex;justify-content:space-between;gap:30px;align-items:center}footer span{font:900 24px Arial;color:var(--acid)}footer p{max-width:650px;font-size:12px;line-height:1.5;margin:0}@media(max-width:760px){.hero{min-height:390px}.orb{opacity:.35;right:-170px}.intro{margin-left:0}.controls{grid-template-columns:1fr 1fr}.search{grid-column:1/-1}.legend{grid-template-columns:1fr}.pokemon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pokemon-card{min-height:230px}.pokemon-card img{width:115px;height:115px}footer{align-items:flex-start;flex-direction:column}}@media(max-width:430px){.controls{grid-template-columns:1fr}.search{grid-column:auto}.pokemon-grid{grid-template-columns:1fr 1fr}.pokemon-card{padding:11px}.pokemon-card h2{font-size:17px}}
+:root{
+  --bg:#08090a;
+  --bg-soft:#0f1012;
+  --surface:#121316;
+  --surface-2:#16171a;
+  --surface-3:#1b1d21;
+  --line:#26282d;
+  --line-strong:#353941;
+  --text:#f5f5f5;
+  --text-soft:#a1a1aa;
+  --text-faint:#686b73;
+  --accent:#6ea8ff;
+  --accent-strong:#3984ff;
+  --accent-soft:#13233b;
+  --purple:#a78bfa;
+  --success:#6ccf8d;
+  --warning:#e7b86a;
+  --shadow:0 18px 50px rgba(0,0,0,.28);
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:16px;
+}
+*{box-sizing:border-box}
+html{background:var(--bg);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Segoe UI Variable","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(circle at 75% 30%,rgba(57,132,255,.12),transparent 32%),linear-gradient(180deg,#090a0c 0%,#08090a 100%);padding:24px clamp(20px,5vw,72px) 58px}
+.topbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1500px;margin:0 auto;color:var(--text-soft)}
+.brand-lockup{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-mark{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(110,168,255,.08)}
+.brand{font:700 12px/1 "Segoe UI Variable","Segoe UI",sans-serif;letter-spacing:.16em;color:var(--text)}
+.brand-section{padding-left:10px;border-left:1px solid var(--line-strong);font-size:12px;color:var(--text-faint)}
+.dataset-status{font:600 11px/1 ui-monospace,"Cascadia Mono","Consolas",monospace;letter-spacing:.04em}
+.hero-layout{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);align-items:center;gap:48px;max-width:1500px;margin:58px auto 0}
+.hero-copy{max-width:880px}
+.eyebrow,.section-kicker{margin:0;color:var(--accent);font:700 11px/1.2 ui-monospace,"Cascadia Mono","Consolas",monospace;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:18px 0 24px;max-width:930px;font-size:clamp(48px,7.2vw,102px);line-height:.9;letter-spacing:-.055em;font-weight:680}
+.hero h1 em{font:500 italic 1em/1.02 Georgia,"Times New Roman",serif;color:var(--text-soft)}
+.intro{max-width:690px;margin:0;color:var(--text-soft);font-size:16px;line-height:1.65}
+.hero-notes{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.hero-notes span{padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.018);color:var(--text-faint);font:600 11px/1 ui-monospace,"Cascadia Mono","Consolas",monospace}
+.hero-orbit{position:relative;width:min(34vw,370px);aspect-ratio:1;justify-self:end;opacity:.78}
+.orbit-ring{position:absolute;border:1px solid var(--line-strong);border-radius:50%}
+.orbit-ring-a{inset:4%}
+.orbit-ring-b{inset:24%;border-style:dashed}
+.orbit-core{position:absolute;left:50%;top:50%;width:88px;height:88px;transform:translate(-50%,-50%);border:1px solid var(--accent);border-radius:50%;background:radial-gradient(circle at 40% 35%,#8dbaff 0 7%,#3d7dcc 28%,#13233b 68%);box-shadow:0 0 0 18px rgba(110,168,255,.035)}
+main{max-width:1500px;margin:0 auto;padding:0 clamp(18px,4vw,56px) 72px}
+.workspace{position:relative;z-index:3;margin-top:-32px;padding:22px;border:1px solid var(--line);border-radius:var(--radius-lg);background:rgba(18,19,22,.96);box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.section-heading,.strip-heading,.catalog-heading{display:flex;align-items:end;justify-content:space-between;gap:24px}
+.section-heading{padding:2px 2px 18px}
+.section-heading h2,.strip-heading h2,.catalog-heading h2{margin:6px 0 0;font-size:20px;letter-spacing:-.02em}
+.section-heading>p{max-width:520px;margin:0;color:var(--text-faint);font-size:13px;line-height:1.5}
+.controls{display:grid;grid-template-columns:minmax(260px,2fr) minmax(170px,1fr) minmax(170px,1fr) auto;gap:12px}
+.controls label{display:flex;min-width:0;flex-direction:column;gap:8px}
+.controls label>span,.generation-filter legend{color:var(--text-faint);font:700 10px/1 ui-monospace,"Cascadia Mono","Consolas",monospace;letter-spacing:.11em;text-transform:uppercase}
+input,select,button{min-height:44px;border:1px solid var(--line-strong);border-radius:var(--radius-sm)}
+input,select{width:100%;min-width:0;background:var(--bg-soft);color:var(--text);padding:0 13px}
+input::placeholder{color:#555961}
+input:hover,select:hover{border-color:#454a54}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button{padding:0 14px;background:var(--surface-3);color:var(--text);font-weight:650;transition:background-color .15s ease,border-color .15s ease,transform .15s ease}
+button:hover{background:#23262c;border-color:#4a505c}
+button:active{transform:translateY(1px)}
+.button-secondary{align-self:end;white-space:nowrap}
+.button-ghost{min-height:36px;background:transparent;color:var(--text-soft)}
+.generation-filter{display:flex;align-items:center;gap:16px;margin:18px 0 0;padding:14px 0 0;border:0;border-top:1px solid var(--line)}
+.generation-filter legend{padding:0}
+.generation-checks{display:flex;flex:1;flex-wrap:wrap;gap:8px}
+.gen-check{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;min-height:36px;padding:8px 11px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--bg-soft);color:var(--text-soft);font:650 11px/1 ui-monospace,"Cascadia Mono","Consolas",monospace;cursor:pointer;user-select:none}
+.gen-check:before{content:"";width:14px;height:14px;flex:0 0 14px;border:1px solid #59606c;border-radius:4px;background:transparent}
+.gen-check:has(input:checked){border-color:#315d93;background:var(--accent-soft);color:#b9d4ff}
+.gen-check:has(input:checked):before{border-color:var(--accent);background:var(--accent);box-shadow:inset 0 0 0 3px var(--accent-soft)}
+.gen-check:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.gen-check input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.results-header{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:38px;padding:38px 0 28px;border-bottom:1px solid var(--line)}
+.result-stat{display:grid;grid-template-columns:auto 1fr;align-items:end;column-gap:10px}
+.result-label{grid-column:1/-1;margin-bottom:8px;color:var(--text-faint);font:700 10px ui-monospace,"Cascadia Mono","Consolas",monospace;letter-spacing:.12em;text-transform:uppercase}
+.result-stat strong{font-size:54px;line-height:.8;letter-spacing:-.05em;color:var(--text)}
+.result-stat>span:last-child{max-width:110px;color:var(--text-soft);font-size:12px;line-height:1.25}
+.result-explanation{align-self:end}
+.result-explanation p:last-child{max-width:800px;margin:8px 0 0;color:var(--text-soft);font-size:13px;line-height:1.6}
+.result-explanation b{color:var(--text);font-weight:650}
+.group-strip,.catalog{padding-top:26px}
+.strip-heading>span,.catalog-hint{color:var(--text-faint);font-size:12px}
+.group-overview{display:flex;gap:8px;overflow:auto;padding:16px 1px 8px;scrollbar-width:thin;scrollbar-color:#343841 transparent}
+.group-chip{min-height:36px;white-space:nowrap;padding:0 12px;border-color:var(--line);background:var(--surface);color:var(--text-soft);font:650 11px/1 ui-monospace,"Cascadia Mono","Consolas",monospace}
+.group-chip:hover{border-color:#465061;color:var(--text);background:var(--surface-2)}
+.group-chip.active{border-color:#37689f;background:var(--accent-soft);color:#c9deff}
+.pokemon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;padding-top:16px}
+.pokemon-card{position:relative;min-height:286px;overflow:hidden;padding:14px;border:1px solid var(--line);border-radius:var(--radius-md);background:linear-gradient(180deg,var(--surface) 0%,#101114 100%);transition:transform .18s ease,border-color .18s ease,background-color .18s ease}
+.pokemon-card:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,var(--card-accent,var(--accent)),transparent 72%);opacity:.75}
+.pokemon-card:hover{transform:translateY(-3px);border-color:#3c424d;background:var(--surface-2)}
+.card-topline{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dexno{color:var(--text-faint);font:700 10px/1 ui-monospace,"Cascadia Mono","Consolas",monospace;letter-spacing:.06em}
+.gen-badge{padding:5px 7px;border:1px solid var(--line);border-radius:999px;color:var(--text-faint);font:650 9px/1 ui-monospace,"Cascadia Mono","Consolas",monospace}
+.pokemon-card h2{margin:4px 0 12px;font-size:19px;letter-spacing:-.025em}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{padding:5px 7px;border:1px solid rgba(255,255,255,.08);border-radius:999px;background:#202329;color:#e9edf4;font:700 9px/1 ui-monospace,"Cascadia Mono","Consolas",monospace;text-transform:uppercase;letter-spacing:.025em}
+.egg{background:color-mix(in srgb,var(--tag-color) 30%,#15171a);border-color:color-mix(in srgb,var(--tag-color) 52%,#2a2d33)}
+.empty{display:grid;place-items:center;gap:8px;margin-top:16px;padding:56px 18px;border:1px dashed var(--line-strong);border-radius:var(--radius-md);color:var(--text-soft);text-align:center}
+.empty[hidden]{display:none}
+.empty strong{color:var(--text);font-size:16px}
+.empty span{font-size:13px}
+footer{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:30px clamp(22px,5vw,72px);border-top:1px solid var(--line);background:#090a0c}
+footer>div{display:flex;align-items:center;gap:12px}
+.footer-brand{font-size:14px;font-weight:750;letter-spacing:.14em}
+.footer-note{padding-left:12px;border-left:1px solid var(--line-strong);color:var(--text-faint);font-size:12px}
+footer p{max-width:660px;margin:0;color:var(--text-faint);font-size:11px;line-height:1.55}
